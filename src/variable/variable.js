@@ -1,4 +1,5 @@
 import { getColor } from "utils/color";
+import { getFontSize } from "utils/font";
 
 // api baseUrl
 export const baseURL = "https://ptx.transportdata.tw/MOTC";
@@ -6,6 +7,9 @@ export const baseURL = "https://ptx.transportdata.tw/MOTC";
 // font
 export const notoSans = "'Noto Sans TC', sans-serif";
 export const roboto = "'Roboto', sans-serif";
+
+// font-size
+export const __16__ = getFontSize(16);
 
 // color
 export const __FFF__ = getColor("#FFFFFF");

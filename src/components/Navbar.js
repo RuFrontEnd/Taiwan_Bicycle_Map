@@ -1,22 +1,27 @@
 import React, { useRef, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components/macro";
 import { useDispatch } from "react-redux";
 import { setNavBarHeight } from "redux/navBar/navBarActions";
-import styled from "styled-components/macro";
-import { ReactComponent as Logo } from "assets/svg/logo.svg";
-// import { ReactComponent as Attraction } from "assets/attraction.svg";
-// import { ReactComponent as Food } from "assets/food.svg";
 import { __FFF__, __000__ } from "variable/variable";
-import Space from "layouts/Space";
+import { ReactComponent as Logo } from "assets/svg/logo.svg";
+import { ReactComponent as Cloud } from "assets/svg/cloud.svg";
+import { ReactComponent as Temperature } from "assets/svg/temperature.svg";
+import IconText from "components/IconText";
+
+const WeatherIconTextProps = {
+  icon: {
+    svg: <Cloud />,
+  },
+  text: {
+    content: "123",
+  },
+};
 
 const Navbar = (props) => {
   const { className, style, history } = props;
   const dispatch = useDispatch();
   const $NavbarContainer = useRef();
-
-  const transferAddress = (address) => {
-    history.push(address);
-  };
 
   useEffect(() => {
     dispatch(setNavBarHeight($NavbarContainer.current.clientHeight));
@@ -32,30 +37,15 @@ const Navbar = (props) => {
             }}
           />
           <Options>
-            <AttractLink
+            <WeatherIconText {...WeatherIconTextProps} />
+            {/* <FoodtLink
               onClick={() => {
-                history.push("/scenicspots");
+                history.push("/foods");
               }}
             >
-              <AttractionIcon />
-              <Text>活動景點</Text>
-            </AttractLink>
-            <FoodtLink
-              onClick={() => {
-                transferAddress("/foods");
-              }}
-            >
-              <FoodIcon />
-              <Text>美食住宿</Text>
-            </FoodtLink>
-            {/* <TrafficLink
-            onClick={() => {
-              transferAddress("/foodAndAccommodation");
-            }}
-          >
-            <TrafficIcon />
-            景點交通
-          </TrafficLink> */}
+              <TemperatureIcon />
+              <Text>18</Text>
+            </FoodtLink> */}
           </Options>
         </Box>
       </Wrap>
@@ -67,14 +57,14 @@ const BikeLogo = styled(Logo)`
   cursor: pointer;
 `;
 
-const FoodIcon = styled.div`
+const TemperatureIcon = styled(Temperature)`
   margin-right: 8px;
   @media (max-width: 425px) {
     margin-right: 0px;
   }
 `;
 
-const AttractionIcon = styled.div`
+const CloudIcon = styled(Cloud)`
   margin-right: 8px;
   @media (max-width: 425px) {
     margin-right: 0px;
@@ -106,12 +96,8 @@ const FoodtLink = styled(Link)`
   color: ${__000__()};
 `;
 
-const AttractLink = styled(Link)`
+const Weather = styled(Link)`
   color: ${__000__()};
-  margin-right: 27px;
-  @media (max-width: 576px) {
-    margin-right: 20px;
-  }
 `;
 
 const Options = styled.div`
@@ -128,15 +114,15 @@ const Box = styled.div`
   padding-bottom: 18px;
 `;
 
-const Wrap = styled(Space)``;
+const WeatherIconText = styled(IconText)``;
 
-const Container = styled.div`
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
+const Wrap = styled.div`
   width: 100%;
   background-color: ${__FFF__()};
+`;
+
+const Container = styled.section`
+  width: 100%;
 `;
 
 export default withRouter(Navbar);
