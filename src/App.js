@@ -8,14 +8,15 @@ import {
   Redirect,
 } from "react-router-dom";
 import { setAxiosDefaultURL } from "utils/data";
-import Component from "components/Component";
+import Page from "pages/Page";
 import { CSSTransition } from "react-transition-group";
+import Navbar from "components/Navbar";
 
 setAxiosDefaultURL("https://swin-opendata.herokuapp.com/api/v1/data/");
 
 const routes = [
   {
-    component: <Component />,
+    component: <Page />,
     path: "/",
   },
 ];
@@ -24,11 +25,10 @@ const routes = [
 
 // routes
 function App() {
-
   return (
     <Router>
       {/* <Suspense fallback={<FallBack />}> */}
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <ScrollToTop /> */}
       <Switch>
         {routes.map((route) => (

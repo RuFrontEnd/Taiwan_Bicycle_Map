@@ -1,8 +1,5 @@
-export const getCreateColorMethod = (slip, color) => {
-  return (opacity) =>
-    `${
-      opacity
-        ? `rgba(${slip[0]}, ${slip[1]}, ${slip[2]}, ${opacity})`
-        : `${color}`
-    }`;
+export const getColor = (colorSlip) => {
+  return (opacity) => {
+    return `${opacity ? `${colorSlip}${opacity * 100}` : `${colorSlip}`}`;
+  };
 };
