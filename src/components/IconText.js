@@ -1,24 +1,25 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { __16__ } from "variable/variable";
+import { __m__ } from "variable/variable";
 
 const IconText = (props) => {
-  const { className, style, icon, text } = props;
+  const { className, style, info } = props;
   return (
     <Container style={style} className={className}>
       <Wrap>
-        <Icon fill={icon.color}>{icon.svg}</Icon>
-        <Text color={text.color}>{text.content}</Text>
+        <Icon fill={info.svgColor}>{info.svg}</Icon>
+        <Text color={info.textColor}>{info.content}</Text>
       </Wrap>
     </Container>
   );
 };
 
 const Text = styled.p`
-  font-size: ${__16__()};
+  font-size: ${__m__()};
 `;
 
 const Icon = styled.div`
+  margin-right: 10px;
   & svg {
     fill: ${(props) => props.fill && props.fill};
   }
@@ -28,6 +29,9 @@ const Wrap = styled.div`
   display: flex;
 `;
 
-const Container = styled.section``;
+const Container = styled.section`
+  display: inline-block;
+  padding: 12px;
+`;
 
 export default IconText;

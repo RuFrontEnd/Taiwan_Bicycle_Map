@@ -9,7 +9,9 @@ export const notoSans = "'Noto Sans TC', sans-serif";
 export const roboto = "'Roboto', sans-serif";
 
 // font-size
-export const __16__ = getFontSize(16);
+export const __s__ = getFontSize(14);
+export const __m__ = getFontSize(16);
+export const __l__ = getFontSize(24);
 
 // color
 export const __FFF__ = getColor("#FFFFFF");

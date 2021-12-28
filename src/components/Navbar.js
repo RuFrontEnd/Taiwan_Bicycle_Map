@@ -8,121 +8,95 @@ import { ReactComponent as Logo } from "assets/svg/logo.svg";
 import { ReactComponent as Cloud } from "assets/svg/cloud.svg";
 import { ReactComponent as Temperature } from "assets/svg/temperature.svg";
 import IconText from "components/IconText";
+import {
+  Container as ContainerRef,
+  Row as RowRef,
+  Col as ColRef,
+} from "react-bootstrap";
 
-const WeatherIconTextProps = {
-  icon: {
-    svg: <Cloud />,
+const WeatherIconTextProps = [
+  {
+    info: {
+      svg: <Cloud />,
+      content: "多雲",
+    },
   },
-  text: {
-    content: "123",
+  {
+    info: {
+      svg: <Temperature />,
+      content: "18℃",
+    },
   },
-};
+];
 
 const Navbar = (props) => {
   const { className, style, history } = props;
   const dispatch = useDispatch();
-  const $NavbarContainer = useRef();
+  // const $NavbarContainer = useRef();
 
   useEffect(() => {
-    dispatch(setNavBarHeight($NavbarContainer.current.clientHeight));
+    // dispatch(setNavBarHeight($NavbarContainer.current.clientHeight));
   }, []);
 
   return (
-    <Container className={className} style={style}>
-      <Wrap>
-        <Box ref={$NavbarContainer}>
-          <BikeLogo
-            onClick={() => {
-              history.push("/scenicspots");
-            }}
-          />
-          <Options>
-            <WeatherIconText {...WeatherIconTextProps} />
-            {/* <FoodtLink
+    <Container className={className} style={style} fluid>
+      <Row noGutters>
+        <Col sm={10}>
+          <NavButtons>
+            <BikeLogo
               onClick={() => {
-                history.push("/foods");
+                history.push("/scenicspots");
               }}
-            >
-              <TemperatureIcon />
-              <Text>18</Text>
-            </FoodtLink> */}
-          </Options>
-        </Box>
-      </Wrap>
+            />
+            <NavButton>123</NavButton>
+            <NavButton>123</NavButton>
+            <NavButton>123</NavButton>
+          </NavButtons>
+        </Col>
+        <Col sm={2}>
+          {WeatherIconTextProps.map((WeatherIconTextProp) => (
+            <WeatherIconText {...WeatherIconTextProp} />
+          ))}
+        </Col>
+      </Row>
     </Container>
   );
 };
 
-const BikeLogo = styled(Logo)`
-  cursor: pointer;
-`;
+const NavButton = styled.div``;
 
-const TemperatureIcon = styled(Temperature)`
-  margin-right: 8px;
-  @media (max-width: 425px) {
-    margin-right: 0px;
-  }
-`;
-
-const CloudIcon = styled(Cloud)`
-  margin-right: 8px;
-  @media (max-width: 425px) {
-    margin-right: 0px;
-  }
-`;
-
-const TrafficLink = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  margin-left: 27px;
-  text-decoration: underline;
-`;
-
-const Text = styled.p`
-  @media (max-width: 425px) {
-    display: none;
-  }
-`;
-
-const Link = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  text-decoration: underline;
-`;
-
-const FoodtLink = styled(Link)`
-  color: ${__000__()};
-`;
-
-const Weather = styled(Link)`
-  color: ${__000__()};
-`;
-
-const Options = styled.div`
-  align-self: center;
+const NavButtons = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
 `;
 
-const Box = styled.div`
-  background-color: ${__FFF__()};
+const BikeLogoContainer = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  align-items: center;
 `;
 
 const WeatherIconText = styled(IconText)``;
 
-const Wrap = styled.div`
-  width: 100%;
-  background-color: ${__FFF__()};
+const BikeLogo = styled(Logo)`
+  cursor: pointer;
+  padding: 15px;
 `;
 
-const Container = styled.section`
+const Col = styled(ColRef)``;
+
+const Row = styled(RowRef)`
+  background-color: ${__FFF__()};
   width: 100%;
+  margin: 0px;
+  padding: 0px 40px;
+`;
+
+const Container = styled(ContainerRef)`
+  padding: 0px 0px;
 `;
 
 export default withRouter(Navbar);
