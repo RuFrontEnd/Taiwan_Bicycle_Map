@@ -14,9 +14,7 @@ const IconText = (props) => {
   );
 };
 
-const Text = styled.p`
-  font-size: ${__m__()};
-`;
+const Text = styled.p``;
 
 const Icon = styled.div`
   margin-right: 10px;
@@ -31,7 +29,6 @@ const Wrap = styled.div`
 
 const Container = styled.section`
   display: inline-block;
-  padding: 12px;
 `;
 
 export default IconText;

@@ -5,14 +5,25 @@ body,
   height: 100%;
 }
 
+@font-face {
+  font-family: "Archivo";
+  src: local("Archivo"),
+    url("assets/font/Archivo-VariableFont_wdth,wght.ttf") format("opentype");
+}
+
 body {
   margin: 0;
-  font-family: "Noto Sans TC", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f8f8 !important;
+  font-family: "Archivo";
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+p {
+  margin-bottom: 0px;
 }

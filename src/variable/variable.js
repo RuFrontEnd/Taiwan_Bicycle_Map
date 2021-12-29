@@ -21,6 +21,8 @@ export const __141414__ = getColor("#141414"); // normal
 export const __747578__ = getColor("#747578"); // disabled
 export const __BDBDBD__ = getColor("#BDBDBD"); // placeHolder
 export const __83C5BE__ = getColor("#83C5BE"); // secondary
+export const __F8F8F8__ = getColor("#F8F8F8") // selected
+
 
 // responsive
 export const size = {

@@ -21,6 +21,13 @@ const routes = [
   },
 ];
 
+const navbarProps = {
+  buttonInfos: [
+    { path: "/", text: "Youbike 租借站點" },
+    { path: "/availability", text: "自行車路線" },
+    { path: "/foodAttractions", text: "美食景點" },
+  ],
+};
 // const page = lazy(() => import("pages/page/page"));
 
 // routes
@@ -28,7 +35,7 @@ function App() {
   return (
     <Router>
       {/* <Suspense fallback={<FallBack />}> */}
-      <Navbar />
+      <Navbar {...navbarProps} />
       {/* <ScrollToTop /> */}
       <Switch>
         {routes.map((route) => (
@@ -36,7 +43,7 @@ function App() {
             {route.component}
           </Route>
         ))}
-        <Redirect to={routes[0].path} />
+        {/* <Redirect to={routes[0].path} /> */}
       </Switch>
       {/* </Suspense> */}
       {/* <Footer /> */}
