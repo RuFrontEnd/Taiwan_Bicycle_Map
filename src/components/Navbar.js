@@ -51,7 +51,7 @@ const Navbar = (props) => {
   return (
     <Container className={className} style={style} fluid>
       <Row noGutters>
-        <Col sm={10}>
+        <Col md={8}>
           <NavButtons>
             <Link to="/">
               <BikeLogo />
@@ -65,7 +65,7 @@ const Navbar = (props) => {
             ))}
           </NavButtons>
         </Col>
-        <Col sm={2}>
+        <Col md={4}>
           <WeatherIconTexts>
             {WeatherIconTextProps.map((WeatherIconTextProp) => (
               <WeatherIconText {...WeatherIconTextProp} />

@@ -25,6 +25,7 @@ const Icon = styled.div`
 
 const Wrap = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const Container = styled.section`
