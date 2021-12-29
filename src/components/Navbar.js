@@ -88,11 +88,16 @@ const NavButtons = styled.div`
   align-items: center;
 `;
 
-const WeatherIconText = styled(IconText)``;
+const WeatherIconText = styled(IconText)`
+  margin-left: 24px;
+`;
 
 const WeatherIconTexts = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 const BikeLogo = styled(Logo)`
