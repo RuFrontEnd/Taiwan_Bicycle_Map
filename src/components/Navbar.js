@@ -50,27 +50,23 @@ const Navbar = (props) => {
 
   return (
     <Container className={className} style={style} fluid>
-      <Row noGutters>
-        <Col md={8}>
-          <NavButtons>
-            <Link to="/">
-              <BikeLogo />
+      <Row>
+        <Col md={8} className="d-flex align-items-center">
+          <Link to="/">
+            <BikeLogo />
+          </Link>
+          {buttonInfos.map((buttonInfo) => (
+            <Link to={`${buttonInfo.path}`}>
+              <NavButton selected={getSelectedType(buttonInfo.path)}>
+                {buttonInfo.text}
+              </NavButton>
             </Link>
-            {buttonInfos.map((buttonInfo) => (
-              <Link to={`${buttonInfo.path}`}>
-                <NavButton selected={getSelectedType(buttonInfo.path)}>
-                  {buttonInfo.text}
-                </NavButton>
-              </Link>
-            ))}
-          </NavButtons>
+          ))}
         </Col>
-        <Col md={4}>
-          <WeatherIconTexts>
-            {WeatherIconTextProps.map((WeatherIconTextProp) => (
-              <WeatherIconText {...WeatherIconTextProp} />
-            ))}
-          </WeatherIconTexts>
+        <Col md={4} className="d-flex justify-content-end align-items-center">
+          {WeatherIconTextProps.map((WeatherIconTextProp) => (
+            <WeatherIconText {...WeatherIconTextProp} />
+          ))}
         </Col>
       </Row>
     </Container>
@@ -81,23 +77,8 @@ const NavButton = styled(Button)`
   margin: 18px 5px;
 `;
 
-const NavButtons = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
-
 const WeatherIconText = styled(IconText)`
-  margin-left: 24px;
-`;
-
-const WeatherIconTexts = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  margin: 10px;
 `;
 
 const BikeLogo = styled(Logo)`
@@ -108,13 +89,14 @@ const BikeLogo = styled(Logo)`
 
 const Col = styled(ColRef)`
   font-size: ${__m__()};
+  padding: 0px 10px;
 `;
 
 const Row = styled(RowRef)`
   background-color: ${__FFF__()};
   width: 100%;
   margin: 0px;
-  padding: 0px 28px;
+  padding: 0px 20px;
 `;
 
 const Container = styled(ContainerRef)`

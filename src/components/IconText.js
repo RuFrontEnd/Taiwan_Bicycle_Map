@@ -6,7 +6,7 @@ const IconText = (props) => {
   const { className, style, info } = props;
   return (
     <Container style={style} className={className}>
-      <Wrap>
+      <Wrap className="d-flex align-items-center">
         <Icon fill={info.svgColor}>{info.svg}</Icon>
         <Text color={info.textColor}>{info.content}</Text>
       </Wrap>
@@ -23,10 +23,7 @@ const Icon = styled.div`
   }
 `;
 
-const Wrap = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const Wrap = styled.div``;
 
 const Container = styled.section`
   display: inline-block;
