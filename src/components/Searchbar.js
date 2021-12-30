@@ -48,6 +48,8 @@ const SearchIconButton = styled(IconButton)`
   position: absolute;
   right: 0;
   margin: 8px;
+  width: 38px;
+  height: 38px;
 `;
 
 const Wrap = styled.div`

@@ -22,8 +22,8 @@ const Wrap = styled.div`
 
 const Container = styled.button`
   display: inline-block;
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
 `;
 
 export default IconButton;
