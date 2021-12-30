@@ -27,3 +27,12 @@ code {
 p {
   margin-bottom: 0px;
 }
+
+button {
+  background-color: transparent;
+}
+
+ul,
+li {
+  margin: 0;
+}

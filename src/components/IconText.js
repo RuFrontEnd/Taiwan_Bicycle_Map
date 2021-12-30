@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { __m__ } from "variable/variable";
 
 const IconText = (props) => {
   const { className, style, info } = props;
