@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Searchbar from "components/Searchbar";
+import SearchBar from "components/SearchBar";
 
-const Station = (props: { className: any; style: any; }) => {
+const Station = (props: { className: any; style: any }) => {
   const { className, style } = props;
   return (
     <Container style={style} className={className}>
       <Wrap>
-        <Searchbar />
+        <SearchBar />
       </Wrap>
     </Container>
   );

@@ -3,11 +3,26 @@ import { withRouter } from "react-router-dom";
 import styled from "styled-components/macro";
 import { color } from "variable/variable";
 
-const Button = forwardRef((props) => {
+interface ButtonProps {
+  className: any;
+  style: any;
+  children: any;
+  infos: Infos;
+}
+
+interface Infos {
+  selected: Boolean;
+}
+
+interface WrapProps {
+  selected: Boolean;
+}
+
+const Button: any = forwardRef((props: ButtonProps) => {
   const { className, style, children, infos } = props;
 
   return (
-    <Container className={className} style={style} fluid>
+    <Container className={className} style={style}>
       <Wrap selected={infos.selected}>{children}</Wrap>
     </Container>
   );
@@ -16,7 +31,7 @@ const Button = forwardRef((props) => {
 const Wrap = styled.div`
   color: ${color.__141414__()};
 
-  background-color: ${(props) =>
+  background-color: ${(props: WrapProps) =>
     props.selected ? color.__F8F8F8__() : "transparent"};
 
   padding: 13px 10px;

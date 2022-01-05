@@ -4,7 +4,7 @@ import IconButton from "components/IconButton";
 import { ReactComponent as search } from "assets/svg/search.svg";
 import { color, fontSize } from "variable/variable";
 
-const Searchbar = (props) => {
+const SearchBar = (props) => {
   const { className, style, children } = props;
   return (
     <Container style={style} className={className}>
@@ -58,4 +58,4 @@ const Wrap = styled.div`
 
 const Container = styled.button``;
 
-export default Searchbar;
+export default SearchBar;

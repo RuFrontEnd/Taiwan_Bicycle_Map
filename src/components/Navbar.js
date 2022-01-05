@@ -14,7 +14,7 @@ import { ReactComponent as Logo } from "assets/svg/logo.svg";
 import { ReactComponent as Cloud } from "assets/svg/cloud.svg";
 import { ReactComponent as Temperature } from "assets/svg/temperature.svg";
 import IconText from "components/IconText";
-import Button from "components/Button";
+import Button from "components/Button.tsx";
 
 const getSelectedType = (path) => window.location.pathname === path;
 
