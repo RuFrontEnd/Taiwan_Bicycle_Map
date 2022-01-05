@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components/macro";
+import buttonTypes from "types/buttonTypes";
 import { color } from "variable/variable";
 
 interface ButtonProps {
