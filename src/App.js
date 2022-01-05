@@ -11,7 +11,7 @@ import { setAxiosDefaultURL } from "utils/data";
 import Page from "pages/Page";
 import { CSSTransition } from "react-transition-group";
 import Navbar from "components/Navbar";
-import Station from "pages/Station";
+import Station from "pages/Station.tsx";
 
 setAxiosDefaultURL("https://swin-opendata.herokuapp.com/api/v1/data/");
 
