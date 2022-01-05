@@ -3,9 +3,15 @@ import styled from "styled-components/macro";
 import { color } from "variable/variable";
 
 const IconButton = (props) => {
-  const { className, style, children } = props;
+  const { className, style, children, onClick = () => {} } = props;
   return (
-    <Container style={style} className={className}>
+    <Container
+      style={style}
+      className={className}
+      onClick={(e) => {
+        onClick(e);
+      }}
+    >
       <Wrap className="d-flex justify-content-center align-items-center">
         {children}
       </Wrap>
