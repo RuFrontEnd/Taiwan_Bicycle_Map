@@ -1,4 +1,4 @@
-declare namespace Button {
+export namespace ButtonTypes {
   interface Props {
     className: any;
     style: any;

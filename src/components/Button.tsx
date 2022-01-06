@@ -2,8 +2,9 @@ import React, { forwardRef } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components/macro";
 import { color } from "variable/variable";
+import { ButtonTypes } from "types/button";
 
-const Button: any = forwardRef((props: Button.Props) => {
+const Button: any = forwardRef((props: ButtonTypes.Props) => {
   const { className, style, children, infos } = props;
 
   return (
@@ -16,7 +17,7 @@ const Button: any = forwardRef((props: Button.Props) => {
 const Wrap = styled.div`
   color: ${color.__141414__()};
 
-  background-color: ${(props: Button.WrapProps) =>
+  background-color: ${(props: ButtonTypes.WrapProps) =>
     props.selected ? color.__F8F8F8__() : "transparent"};
 
   padding: 13px 10px;
