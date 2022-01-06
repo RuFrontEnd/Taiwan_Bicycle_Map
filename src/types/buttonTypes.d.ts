@@ -1,18 +1,12 @@
-interface Props {
-  className: any;
-  style: any;
-  children: any;
-  infos: Infos;
+declare namespace Button {
+  interface Props {
+    className: any;
+    style: any;
+    children: any;
+    infos: Infos;
+  }
+
+  interface WrapProps {
+    selected: Boolean;
+  }
 }
-
-interface Infos {
-  selected: Boolean;
-}
-
-interface Wrap {
-  selected: Boolean;
-}
-
-const buttonTypes = { ButtonProps, Infos, WrapProps };
-
-export default buttonTypes;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import IconButton from "components/IconButton";
+import IconButton from "components/IconButton.tsx";
 import { ReactComponent as search } from "assets/svg/search.svg";
 import { color, fontSize } from "variable/variable";
 
