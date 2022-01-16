@@ -4,6 +4,8 @@ import SearchBar from "components/SearchBar";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const position: number[] = [51.505, -0.09];
+const accessToken =
+  "pk.eyJ1Ijoiazg4NjY1NTQ0IiwiYSI6ImNreWhidTJtdjE4MWozM3FobXNndXl3M3AifQ.IECy46dIgeuVKdFYTgiiaQ";
 
 const Station = (props: { className: any; style: any }) => {
   const { className, style } = props;
@@ -14,8 +16,12 @@ const Station = (props: { className: any; style: any }) => {
         <div style={{ width: "100%" }}></div>
         <Map center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+            url={
+              "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}"
+            }
+            id={"mapbox/streets-v11"}
+            accessToken={accessToken}
           />
           <Marker position={[51.505, -0.09]}>
             <Popup>
@@ -36,7 +42,7 @@ const Map = styled(MapContainer)`
 const UBikeSearchBar = styled(SearchBar)`
   position: fixed;
   left: 50%;
-  transform:translateX(-50%);
+  transform: translateX(-50%);
   z-index: 500;
 `;
 
