@@ -1,20 +1,53 @@
 import React from "react";
 import styled from "styled-components/macro";
 import SearchBar from "components/SearchBar";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+
+const position: number[] = [51.505, -0.09];
 
 const Station = (props: { className: any; style: any }) => {
   const { className, style } = props;
   return (
     <Container style={style} className={className}>
       <Wrap>
-        <SearchBar />
+        <UBikeSearchBar />
+        <div style={{ width: "100%" }}></div>
+        <Map center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[51.505, -0.09]}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+        </Map>
       </Wrap>
     </Container>
   );
 };
 
-const Wrap = styled.div``;
+const Map = styled(MapContainer)`
+  width: 100%;
+  height: 100%;
+`;
 
-const Container = styled.section``;
+const UBikeSearchBar = styled(SearchBar)`
+  position: fixed;
+  left: 50%;
+  transform:translateX(-50%);
+  z-index: 500;
+`;
+
+const Wrap = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const Container = styled.section`
+  width: 100%;
+  height: 100%;
+`;
 
 export default Station;

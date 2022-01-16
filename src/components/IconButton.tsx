@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { color } from "variable/variable";
 
-const IconButton = (props) => {
+const IconButton = (props:any) => {
   const { className, style, children, onClick = () => {} } = props;
   return (
     <Container
